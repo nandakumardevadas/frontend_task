@@ -5,7 +5,7 @@ import { Inputs } from '../../constants/data';
 const NavMenu = () => {
     const menus = Inputs['menu'];
     const NavMenus = menus.map(({ className, name, link, submenu }, index) => (
-        <Menu index={index} className={className} name={name} link={link} submenu={submenu}/>
+        <Menu key={index} className={className} name={name} link={link} submenu={submenu}/>
     ));
     return NavMenus
 }
