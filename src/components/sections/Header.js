@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -7,13 +7,20 @@ import MenuIcon from '../../assets/img/menu.png';
 import ContactIcon from '../../assets/img/contact.png';
 import NavIcon from '../container/NavIcon';
 import NavMenu from '../container/NavMenu';
-
+import Resize from '../../utils/Resize';
 
 const Header = () => {
   const [menuStatus, setMenustatus] = useState(true);
   const toggleMenu = () => {
     setMenustatus(!menuStatus);
   }
+
+  useEffect(() => {
+    if(Resize) {
+      setMenustatus(false);
+    }
+  }, [])
+  
   return (
     <header>
       <nav>

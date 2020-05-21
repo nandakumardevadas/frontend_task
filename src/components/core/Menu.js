@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Resize from '../../utils/Resize';
 
-const Menu = ({ className, name, link, submenu, index } ) => {
+const Menu = ({ className, name, link, submenu, index }) => {
     let children = '';
     const subMenuCount = submenu.length;
     const [menuStatus, setMenustatus] = useState(true);
 
     const toggleSubMenu = () => {
-      setMenustatus(!menuStatus);
+        setMenustatus(!menuStatus);
     }
     
+    useEffect(() => {
+        if(Resize) {
+          setMenustatus(false);
+        }
+      }, [])
+
     if (Array.isArray(submenu) && subMenuCount > 0) {
         className = `has-children ${className}`;
         children = submenu.map(({ name, link, className }, index) => (
@@ -17,11 +24,11 @@ const Menu = ({ className, name, link, submenu, index } ) => {
     }
     return (
         <li className={className} key={index}>
-            <a href={link} onClick={ toggleSubMenu}>
+            <a href={link} onClick={toggleSubMenu}>
                 {name}
-                <span className={subMenuCount > 0 ? (menuStatus ? "arrow arrow-down": "arrow arrow-right"): "" }></span>
+                <span className={subMenuCount > 0 ? (menuStatus ? "arrow arrow-down" : "arrow arrow-right") : ""}></span>
             </a>
-            {(subMenuCount > 0  && menuStatus )&&
+            {(subMenuCount > 0 && menuStatus) &&
                 <ul key={index}>
                     {children}
                 </ul>
