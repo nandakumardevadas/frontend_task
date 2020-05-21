@@ -1,0 +1,175 @@
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 992px) {
+    .services {
+        &__service {
+            justify-content: space-between;
+            flex-direction: column;
+        }
+    }
+    nav {
+        height: 65px;
+        ul {
+            flex-direction: row;
+            align-items: center;
+            padding: 0 70px 0 70px;
+            height: 100%;
+            li {
+                position: relative;
+                flex: 0.5 1 auto;
+                text-align: left;
+                &.logo {
+                    flex-grow: 10;
+                    text-align: left;
+                }
+                &:not(.direct-menu) {
+                    text-align: center;
+                }
+                &.has-children ul {
+                    display: none;
+                    width: 200%;
+                    position: absolute;
+                    top: 50px;
+                    padding: 10px;
+                    align-items: flex-start;
+                    li {
+                        text-align: left;
+                        width: 100%;
+                    }
+                    .has-children ul {
+                        display: none;
+                        width: 200%;
+                        position: absolute;
+                        top: 50px;
+                        padding: 10px;
+                        align-items: flex-start;
+                        left: 100%;
+                        top: 0px;
+                    }
+                    .has-children:hover ul {
+                        display: flex;
+                        flex-direction: column;
+                        height: auto;
+                    }
+                }
+                &:hover ul {
+                    display: flex;
+                    flex-direction: column;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 240px) and (max-width: 991px) {
+    nav {
+        ul {
+            li {
+                &.contact__us {
+                    display: none;
+                }
+                &.logo {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    .menu,
+                    .contact {
+                        display: block;
+                    }
+                }
+                &:hover:not(.direct-menu) {
+                    border: 0;
+                }
+            }
+        }
+    }
+
+    .testimonials-container {
+        &__testimonials {
+            flex-direction: column;
+            blockquote {
+                max-width: 100%;
+                margin: 0;
+                &:before {
+                    bottom: -0.6em;
+                }
+            }
+            &__testimonial {
+                margin-top: 1.5em;
+            }
+        }
+    }
+
+    .section1 {
+        min-height: 800px;
+        padding: 0;
+        .services {
+            flex-direction: column;
+            &__service {
+                padding: 0.3em;
+                flex-direction: row;
+                .service-image {
+                    margin: 0;
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+    .section2 {
+        flex-direction: column;
+        img {
+            margin-top: 2em;
+        }
+    }
+    .section-work-with-us {
+        &__inputs-container,
+        &__text-area-container {
+            display: flex;
+            padding: 0;
+            flex-direction: column;
+            input {
+                margin-top: 1em;
+            }
+        }
+        &__text-area-container {
+            height: 8em;
+            margin-top: 1em;
+        }
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 2em 2em;
+        &__social {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+        }
+    }
+    .has-children {
+        ul {
+            li {
+                a {
+                    padding-left: 2rem;
+                }
+            }
+            &.has-children ul a {
+                padding-left: 3rem;
+            }
+        }
+    }
+    .services {
+        display: flex;
+        &__service {
+            padding: 0.5em 0.5em 0.5em 1.2em;
+            flex-direction: row;
+            p {
+                padding: 15px 0 0 15px;
+            }
+        }
+    }
+}
